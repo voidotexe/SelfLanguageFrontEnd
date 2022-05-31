@@ -1,0 +1,35 @@
+<h1>{{video.title}}</h1>
+<div class="video-card">
+  <mat-card>
+    <mat-card-header>
+      <iframe [src]="video.embed" width="700" height="400"></iframe>
+    </mat-card-header>
+    <mat-card-content>
+      <h2>Transcrição</h2>
+      <p>
+        {{transcription.content}}
+      </p>
+      <h2>Tradução</h2>
+      <p>
+        {{subtitle.content}}
+      </p>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<div class="video-info-card">
+  <mat-card>
+    <mat-card-content>
+      <mat-icon aria-hidden="false" aria-label="Idioma do vídeo">language</mat-icon> {{video.language}}
+      <br>
+      <br>
+      <mat-icon aria-hidden="false" aria-label="Dificuldade">psychology</mat-icon> {{video.difficulty}}
+      <br>
+      <br>
+      <mat-icon aria-hidden="false" aria-label="Criado por">person</mat-icon> {{video.createdBy}}
+      <br>
+      <br>
+      <mat-icon aria-hidden="false" aria-label="Criado em">access_time</mat-icon> {{video.createdAt | date:'dd/MM/yyyy - HH:mm:ss'}}
+    </mat-card-content>
+  </mat-card>
+</div>
