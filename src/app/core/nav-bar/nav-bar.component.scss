@@ -1,0 +1,11 @@
+a {
+  text-decoration: none;
+  color: white;
+}
+
+mat-toolbar {
+  margin: 0px;
+  top: 0px;
+  position: sticky;
+  z-index: 9999;
+}
