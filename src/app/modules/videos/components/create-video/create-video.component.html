@@ -1,0 +1,48 @@
+<mat-card>
+  <mat-progress-bar [value]="progressBarValue"></mat-progress-bar>
+
+  <form class="container" *ngIf="formStepNumber === 0">
+    <h3>Detalhes do vídeo</h3>
+    <mat-form-field>
+      <mat-label>Nome</mat-label>
+      <input matInput placeholder="Inflation Explained in One Minute" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Id</mat-label>
+      <input matInput placeholder="beAvFHP4wDI" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Idioma</mat-label>
+      <input matInput placeholder="US" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Dificuldade</mat-label>
+      <mat-select name="difficulty">
+        <mat-option *ngFor="let difficulty of difficulties" [value]="difficulty">
+          {{difficulty}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button mat-button color="primary" (click)="nextFormStep()">Próximo</button>
+  </form>
+
+  <form class="container" *ngIf="formStepNumber === 1">
+    <h3>Detalhes da transcrição</h3>
+    <mat-form-field>
+      <mat-label>Texto</mat-label>
+      <input matInput placeholder="Let’s assume your monthly income were to somehow double. Congratulations! You can now, for the most part, afford to buy two times more stuff. But what if the monthly income of everyone else were to also double? Well, in that case, you’d no longer be able to buy 2 times more stuff, because since everyone else also earns 2 times more, there would be 2 times more money chasing roughly the same number of goods. Let’s take things one step further. What if your income doubles but the income of everyone else triples? In that case, you’d actually become poor. Why? Because making 2 times more money is not enough to keep up with everyone else, who now makes 3 times more." />
+    </mat-form-field>
+    <button mat-button color="primary" (click)="previousFormStep()">Voltar</button>
+    <button mat-button color="primary" (click)="nextFormStep()">Próximo</button>
+  </form>
+
+  <form class="container" *ngIf="formStepNumber === 2">
+    <h3>Detalhes da tradução</h3>
+    <mat-form-field>
+      <mat-label>Texto</mat-label>
+      <input matInput placeholder="Vamos assumir que sua renda mensal de alguma maneira dobrasse. Parabéns! Agora você pode, em geral, custear comprar duas vezes mais coisas. Mas e se a renda mensal de todas as outras pessoas também dobrasse? Bem, nesse caso, você não conseguiria mais comprar 2 vezes mais coisas, porque já que todo mundo também ganha 2 vezes mais, haveria 2 vezes mais dinheiro indo atrás do mesmo número de mercadorias. Vamos levar as coisas um passo à frente. E se a sua renda dobrar, mas a renda de todos os outros triplicar? Nesse caso, você na verdade ficaria mais pobre. Por quê? Porque fazer 2 vezes mais dinheiro não é suficiente para acompanhar todos os outros, que agora fazem 3 vezes mais." />
+    </mat-form-field>
+    <button mat-button color="primary" (click)="previousFormStep()">Voltar</button>
+  </form>
+
+</mat-card>

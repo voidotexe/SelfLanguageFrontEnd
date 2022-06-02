@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { VideosService } from '../services/videos.service';
-import { Video } from '../models/video.model';
+import { VideosService } from '../../services/videos.service';
+import { Video } from '../../models/video.model';
 import { DomSanitizer } from '@angular/platform-browser';
-import { TranscriptionService } from '../services/transcription.service';
-import { Transcription } from '../models/transcription.model';
-import { SubtitleService } from '../services/subtitle.service';
-import { Subtitle } from '../models/subtitle.model';
+import { TranscriptionService } from '../../services/transcription.service';
+import { Transcription } from '../../models/transcription.model';
+import { SubtitleService } from '../../services/subtitle.service';
+import { Subtitle } from '../../models/subtitle.model';
 
 @Component({
   selector: 'app-video-details',

@@ -1,0 +1,27 @@
+<div *ngIf="isLoading" id="loading">
+  <mat-spinner></mat-spinner>
+  <p id="loading-text"></p>
+</div>
+
+<a [routerLink]="['/video', video.id]" *ngFor="let video of videos">
+  <mat-card class="video-card" matRipple [matRippleCentered]="false" [matRippleDisabled]="false" [matRippleUnbounded]="false">
+    <mat-card-header>
+      <mat-card-title>
+        {{video.title}}
+      </mat-card-title>
+    </mat-card-header>
+    <img mat-card-image [src]="video.thumbnail"/>
+    <mat-card-content>
+      <mat-icon aria-hidden="false" aria-label="Idioma do vídeo">language</mat-icon> {{video.language}}
+      <br>
+      <br>
+      <mat-icon aria-hidden="false" aria-label="Dificuldade">psychology</mat-icon> {{video.difficulty}}
+      <br>
+      <br>
+      <mat-icon aria-hidden="false" aria-label="Criado por">person</mat-icon> {{video.createdBy}}
+      <br>
+      <br>
+      <mat-icon aria-hidden="false" aria-label="Criado em">access_time</mat-icon> {{video.createdAt | date:'dd/MM/yyyy - HH:mm:ss'}}
+    </mat-card-content>
+  </mat-card>
+</a>

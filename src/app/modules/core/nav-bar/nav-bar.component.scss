@@ -1,6 +1,12 @@
 a {
   text-decoration: none;
+  font-weight: normal;
   color: white;
+  margin: 10px;
+}
+
+.active-link {
+  font-weight: bold;
 }
 
 mat-toolbar {
