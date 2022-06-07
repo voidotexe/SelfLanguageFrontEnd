@@ -1,7 +1,8 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
 import { Video } from '../models/video.model';
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+
 
 @Injectable()
 export class VideosService {
@@ -9,11 +10,15 @@ export class VideosService {
 
   constructor(private http: HttpClient) { }
 
-  public getAll(): Observable<Video[]> {
+  getAll(): Observable<Video[]> {
     return this.http.get<Video[]>(`${this.url}video/get`);
   }
 
-  public get(id: number): Observable<Video> {
+  get(id: number): Observable<Video> {
     return this.http.get<Video>(`${this.url}video/get/${id}`);
+  }
+
+  post(video: Video): Observable<any> {
+    return this.http.post<any>(`${this.url}video/post`, video);
   }
 }

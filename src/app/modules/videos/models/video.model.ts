@@ -6,8 +6,8 @@ export interface Video {
   link: string,
   language: string,
   difficulty: string,
-  embed: SafeResourceUrl,
-  thumbnail: string,
+  embed?: SafeResourceUrl,
+  thumbnail?: string,
   createdBy: string,
   createdAt: string
 }

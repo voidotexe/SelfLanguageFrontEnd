@@ -1,7 +1,7 @@
+import { Transcription } from '../models/transcription.model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Transcription } from '../models/transcription.model';
 
 @Injectable()
 export class TranscriptionService {
@@ -9,7 +9,11 @@ export class TranscriptionService {
 
   constructor(private http: HttpClient) { }
 
-  public get(id: number): Observable<Transcription> {
+  get(id: number): Observable<Transcription> {
     return this.http.get<Transcription>(`${this.url}transcription/getbyvideoid/${id}`);
+  }
+
+  post(transcription: Transcription): Observable<any> {
+    return this.http.post<any>(`${this.url}transcription/post`, transcription);
   }
 }
