@@ -1,12 +1,14 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { NavBarComponent } from './nav-bar/nav-bar.component';
-import { MatToolbarModule } from '@angular/material/toolbar';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { SnackBarComponent } from './components/snack-bar/snack-bar.component';
 import { CoreRoutingModule } from './core-routing.module';
+import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { MatToolbarModule } from '@angular/material/toolbar';
+
 
 
 @NgModule({
-  declarations: [NavBarComponent],
+  declarations: [NavBarComponent, SnackBarComponent],
   imports: [
     CommonModule,
     MatToolbarModule,

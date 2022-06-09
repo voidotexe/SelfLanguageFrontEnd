@@ -6,7 +6,10 @@ import { TranscriptionService } from '../../services/transcription.service';
 import { VideosService } from '../../services/videos.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { concatMap, tap } from 'rxjs/operators';
+import { SnackBarComponent } from 'src/app/modules/core/components/snack-bar/snack-bar.component';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-create-video',
@@ -14,6 +17,8 @@ import { concatMap, tap } from 'rxjs/operators';
   styleUrls: ['./create-video.component.scss']
 })
 export class CreateVideoComponent implements OnInit {
+  // Forms
+
   videoForm = this.formBuilder.group({
     title: ['', Validators.required],
     link: ['', Validators.required],
@@ -42,7 +47,13 @@ export class CreateVideoComponent implements OnInit {
   formStepNumber: number = 0;
   progressBarValue: number = 0;
 
-  constructor(private formBuilder: FormBuilder, private videoService: VideosService, private transcriptionService: TranscriptionService, private subtitleService: SubtitleService) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private snackBar: MatSnackBar,
+    private subtitleService: SubtitleService,
+    private transcriptionService: TranscriptionService,
+    private videoService: VideosService,
+  ) { }
 
   public nextFormStep(): void {
     ++this.formStepNumber;
@@ -96,7 +107,13 @@ export class CreateVideoComponent implements OnInit {
       }),
       concatMap(() => this.transcriptionService.post(transcription)),
       concatMap(() => this.subtitleService.post(subtitle))
-    ).subscribe();
+    ).subscribe(next => {}, (error: HttpErrorResponse) => this.snackBar.openFromComponent(SnackBarComponent, {
+      duration: 3000,
+      data: `Ocorreu um erro! (${error.status})`
+    }), () => this.snackBar.openFromComponent(SnackBarComponent, {
+      duration: 3000,
+      data: 'Vídeo criado com sucesso!'
+    }));
   }
 
   ngOnInit(): void { }
