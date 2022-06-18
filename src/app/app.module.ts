@@ -7,6 +7,7 @@ import { CoreModule } from './modules/core/core.module';
 import { VideosModule } from './modules/videos/videos.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { AccountsModule } from './modules/accounts/accounts.module';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
   ],
   imports: [
     BrowserModule,
+    AccountsModule,
     CoreModule,
     VideosModule,
     AppRoutingModule,
