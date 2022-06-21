@@ -14,6 +14,6 @@ export class AccountService {
   }
 
   login(account: Account): Observable<any> {
-    return this.http.post(`${this.url}login`, account);
+    return this.http.post(`${this.url}login`, account, { responseType: 'text' });
   }
 }
