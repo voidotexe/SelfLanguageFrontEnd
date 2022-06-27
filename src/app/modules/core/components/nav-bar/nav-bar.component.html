@@ -3,4 +3,7 @@
   <a *ngIf="authenticationService.isLoggedIn()" [routerLink]="['/create']" routerLinkActive="active-link">Criar vídeo</a>
   <a *ngIf="!authenticationService.isLoggedIn()" [routerLink]="['/signup']" routerLinkActive="active-link">Cadastrar</a>
   <a *ngIf="!authenticationService.isLoggedIn()" [routerLink]="['/login']" routerLinkActive="active-link">Entrar</a>
+  <button *ngIf="authenticationService.isLoggedIn()" mat-icon-button (click)="authenticationService.logout()">
+    <mat-icon>logout</mat-icon>
+  </button>
 </mat-toolbar>

@@ -11,10 +11,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { AccountService } from './services/account.service';
 import { LoginComponent } from './components/login/login.component';
+import { LogoutComponent } from './components/logout/logout.component';
 
 
 @NgModule({
-  declarations: [SignupComponent, LoginComponent],
+  declarations: [SignupComponent, LoginComponent, LogoutComponent],
   imports: [
     CommonModule,
     MatButtonModule,
